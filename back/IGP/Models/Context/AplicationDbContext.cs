@@ -15,29 +15,19 @@ namespace IGP.Models.Context
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-      modelBuilder.Entity<Empleado>(empleado =>
-     {
-       empleado.HasKey(s => s.Id);
-       empleado.Property(s => s.Id).ValueGeneratedOnAdd();
-       empleado.Property(s => s.Nombre).IsRequired();
-       empleado.Property(s => s.Apellido).IsRequired();
-       empleado.Property(s => s.DocIdentidad).IsRequired();
-       empleado.HasOne(s => s.cargo);
-     });
+      //Seed de la Base de datos
+      //modelo de cargos
+      modelBuilder.Entity<Cargo>().HasData(new Cargo { CargoID = 1, Nombre = "Gerente" });
+      modelBuilder.Entity<Cargo>().HasData(new Cargo { CargoID = 2, Nombre = "Vendedor" });
+      modelBuilder.Entity<Cargo>().HasData(new Cargo { CargoID = 3, Nombre = "Coordinador" });
+      modelBuilder.Entity<Cargo>().HasData(new Cargo { CargoID = 4, Nombre = "SubGerente" });
 
-      modelBuilder.Entity<Cargo>(cargo =>
-      {
-        cargo.HasKey(t => t.Id);
-        cargo.Property(t => t.Id).ValueGeneratedOnAdd();
-        cargo.Property(t => t.Nombre).IsRequired();
-      });
 
-      modelBuilder.Entity<Auth>(auth =>
-     {
-       auth.HasKey(t => t.Id);
-       auth.Property(t => t.UserName).IsRequired();
-       auth.Property(t => t.Pass).IsRequired();
-     });
+      modelBuilder.Entity<Empleado>().HasData(new Empleado { EmpleadoID = 1, Nombre = "Manuel", Apellido = "Calambas", DocIdentidad = 1061732742, CargoID = 1 });
+      modelBuilder.Entity<Empleado>().HasData(new Empleado { EmpleadoID = 2, Nombre = "Martha", Apellido = "Giraldo", DocIdentidad = 34319349, CargoID = 4 });
+      modelBuilder.Entity<Empleado>().HasData(new Empleado { EmpleadoID = 3, Nombre = "Arturo", Apellido = "Bedoya", DocIdentidad = 1054765323, CargoID = 2 });
+      modelBuilder.Entity<Empleado>().HasData(new Empleado { EmpleadoID = 4, Nombre = "Alejandra", Apellido = "Calambas", DocIdentidad = 34323432, CargoID = 3 });
     }
+
   }
 }

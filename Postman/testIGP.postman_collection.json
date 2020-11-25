@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "ac25a7a6-75ed-4dfb-a41f-b330e68a27dd",
+		"name": "testIGP",
+		"description": "testing collection for te dotnet api request\r\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Empleado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/empleado/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"empleado",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Empleado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Martha\",\r\n    \"apellido\": \"Giraldo\",\r\n    \"docIdentidad\": 34319244,\r\n    \"cargoID\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/empleado/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"empleado",
+						""
+					]
+				},
+				"description": "registrar nuevos empleados"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Empleado",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"empleadoID\": 2,\r\n        \"nombre\": \"Liliana\",\r\n        \"apellido\": \"Giraldo\",\r\n        \"docIdentidad\": 30303030,\r\n        \"cargoID\": 1\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/empleado/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"empleado",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ee2076f4-f904-437f-83a0-802dcb6b83bf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d2ddf2e5-f18e-4f88-a9b8-5b6045a839fe",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
