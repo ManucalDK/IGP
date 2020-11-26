@@ -4,6 +4,7 @@ using IGP.Models;
 using IGP.Models.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IGP.Controllers
 {
@@ -19,12 +20,14 @@ namespace IGP.Controllers
     }
 
     [HttpGet]
+    // [Authorize]
     public async Task<ActionResult<List<Empleado>>> GetEmpleados()
     {
       return Ok(await _context.Empleado.ToListAsync());
     }
 
     [HttpGet("{id}")]
+    // [Authorize]
     public async Task<ActionResult<Empleado>> GetEmpleado(int id)
     {
 
@@ -36,6 +39,7 @@ namespace IGP.Controllers
     }
 
     [HttpPut("{id}")]
+    // [Authorize]
     public async Task<ActionResult<ActionResult<List<Empleado>>>> UpdateEmpleado(int id, Empleado empleado)
     {
       if (id != empleado.EmpleadoID)
@@ -57,6 +61,7 @@ namespace IGP.Controllers
     }
 
     [HttpPost]
+    // [Authorize]
     public async Task<ActionResult<Empleado>> AddEmpleado(Empleado empleado)
     {
       _context.Empleado.Add(empleado);

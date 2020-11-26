@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using IGP.Models;
 using IGP.Models.Context;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,12 +20,14 @@ namespace IGP.Controllers
     }
 
     [HttpGet]
+    // [Authorize]
     public async Task<ActionResult<List<Cargo>>> GetCargos()
     {
       return await _context.Cargo.ToListAsync();
     }
 
     [HttpGet("{id}")]
+    // [Authorize]
     public async Task<ActionResult<Cargo>> GetCargo(int id)
     {
 
@@ -36,6 +39,7 @@ namespace IGP.Controllers
     }
 
     [HttpPut("{id}")]
+    // [Authorize]
     public async Task<ActionResult<ActionResult<List<Cargo>>>> UpdateCargo(int id, Cargo cargo)
     {
       if (id != cargo.CargoID)
@@ -57,6 +61,7 @@ namespace IGP.Controllers
     }
 
     [HttpPost]
+    // [Authorize]
     public async Task<ActionResult<Cargo>> AddCargo(Cargo cargo)
     {
       _context.Cargo.Add(cargo);

@@ -9,6 +9,9 @@
 		{
 			"name": "GET Empleado",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -63,7 +66,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"empleadoID\": 2,\r\n        \"nombre\": \"Liliana\",\r\n        \"apellido\": \"Giraldo\",\r\n        \"docIdentidad\": 30303030,\r\n        \"cargoID\": 1\r\n    }",
+					"raw": "    {\r\n        \"empleadoID\": 1,\r\n        \"nombre\": \"Alejandro\",\r\n        \"apellido\": \"Calambas\",\r\n        \"docIdentidad\": 121313,\r\n        \"cargoID\": 1 \r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -71,7 +74,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/empleado/2",
+					"raw": "http://localhost:5000/empleado/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -79,7 +82,55 @@
 					"port": "5000",
 					"path": [
 						"empleado",
-						"2"
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET API TOKEN",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"client_id\":\"50FgNrqBY29h0l6krdvQTyOWz5AfzyPU\",\r\n    \"client_secret\":\"GaSm81R_mHp1o0qP6dFn7HOHIJ29aFFYxN1MtpFX_ex6602KrlkDHfQZqU2fKrQk\",\r\n    \"audience\":\"igptest.com\",\r\n    \"grant_type\":\"client_credentials\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://manudecoder.us.auth0.com/oauth/token",
+					"protocol": "https",
+					"host": [
+						"manudecoder",
+						"us",
+						"auth0",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"token"
 					]
 				}
 			},
