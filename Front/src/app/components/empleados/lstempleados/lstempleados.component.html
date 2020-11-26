@@ -1,0 +1,12 @@
+<table class="table table-sm">
+  <tr *ngFor="let empleado of empleadoService.lista">
+    <td>{{empleado.EmpleadoID}}</td>
+    <td>{{empleado.Nombre}}</td>
+    <td>{{empleado.Apellido}}</td>
+    <td>{{empleado.DocIdentidad}}</td>
+    <td>{{empleado.CargoID}}</td>
+    <td>
+      <button class="btn btn-secondary btn-sm" (click)="editar(empleado)">modificar</button>
+    </td>
+  </tr>
+</table>
